@@ -13,7 +13,8 @@ namespace serializer
             {
                 Name = "John Doe",
                 Address = null,
-                Gender = Gender.Male
+                Gender = Gender.Male,
+                SSN = "123-45-6789"
             };
 
             var personJson = JsonConvert.SerializeObject(person); 
@@ -21,7 +22,8 @@ namespace serializer
 
             JsonSerializerSettings settings = new JsonSerializerSettings
             {
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new FilterContractResolver(new string[]{"SSN"})
             };
             settings.Converters.Add(new StringEnumConverter());
 
