@@ -1,2 +1,2 @@
 # serializer
-json
+json serialized utilities
